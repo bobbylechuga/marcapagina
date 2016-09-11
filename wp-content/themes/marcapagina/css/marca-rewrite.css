@@ -29,7 +29,6 @@ p {
   height: 100%;
   background: #000;
   opacity: 0;
-  z-index: 10;
 }
 
 .top {
@@ -196,4 +195,14 @@ p {
   opacity: 1;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
+}
+
+
+/* Definitivas */
+
+.imagen-post img {
+  margin: 0 auto;
+}
+.catalogueSubItem {
+  list-style: none;
 }

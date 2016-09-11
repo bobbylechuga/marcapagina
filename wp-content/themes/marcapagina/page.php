@@ -48,16 +48,25 @@ get_header();
           $cont = 1;
           $totalArticulos;
           $articulosCreados = 0;
+
           foreach ($parent as $post => $valor):
+            $termId = get_field('tag_del_numero', $valor->ID);
             $totalArticulos = intval(get_field('total_articulos', $valor->ID));
-            $articulosCreados = intval(cantidadPostPorTag(get_field('tag_del_numero', $valor->ID)));
+            $articulosCreados = intval(get_field('tag_del_numero', $valor->ID));
             if(!$articulosCreados): $articulosCreados = 0;endif;
             $porcentaje = obtenerPorcentaje($articulosCreados, $totalArticulos);
         ?>
           <div class="col-md-4 text-center">
             <div class="work-inner">
-              <a href="#" class="work-grid" style="background-image: url(<?php echo imagenDestacada($valor->ID, "galerianumeros"); ?>);">
+              <a href="#" class="work-grid" style="background-image: url(<?php
+                if (function_exists('get_wp_term_image'))
+                {
+                    $meta_image = get_wp_term_image($termId);
+                    //It will give category/term image url
+                }
 
+                echo $meta_image; // category/term image url
+                ?>);">
               </a>
               <!--
               <div class="desc">
